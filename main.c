@@ -1,34 +1,81 @@
 //FSO project 
 
-void main(){
+#include <stdbool.h>
+#include <stdlib.h>
 
-    //0| While true:
-            //creation de fork for each imput
+void main(int argc, char* argv) {
+        bool loop = true;
+        int cmdc, cmdt;
+        char* cmdv;
 
-    // 1|Verification des parametres In: argv +argc Display de l'erreuret dire que seuelment 1 parametre de pris
+        displayStart();
 
-    // 2|Interpretation de la commande
-        // 2.1| Cat verification de la validité des parametres
-                //-in: parametres de cat
-                //-out: result / boolean
-        // 2.2| ls verification de la validité des parametres
-                //-in: parametres de ls
-                //-out: result / boolean
-        // 2.3| exit  
-                //just exit 
+        while(loop) {
+                // input -> cmdv
+                // nb de param de cmdv -> cmdc (delimiter " ")
 
-    //execut in fork:
-                    //execut command + display command
-                    //if false display error
-                    //else display result
+                if (cmdt = (verifCmd(cmdc, cmdv)) != 0) {
+                        switch (smdt) :
+                                case 1:
+                                        exec_ls(cmdc, cmdv);
+                                        break;
+                                case 2:
+                                        exec_cat(cmdc, cmdv);
+                                        break;
+                                case 3:
+                                        loop = false;
+                                        break;
+                                default :
+                                        break;
+                } 
+                // Print warning si cmdc > 2
+        }
 
-                    //pere await fin de fork fils
+        displayEnd();
 
-    
+        return 0;
+}
 
-    
-    
+// J
+void exec_ls(cmdc, cmdv) {
+        // Création du fork
+        // Vérification (child/parent)
+                // Si enfant exec()
+                        // display result
+                // Sinon await -> a voir
+}
 
+// H
+void exec_cat(cmdc, cmdv) {
+        // Création du fork
+        // Vérification (child/parent)
+                // Si enfant exec()
+                        // display result
+                // Sinon await -> a voir
+}
 
+// H
+// Verif si input correspont a cmd "ls", "cat", "exit"
+//         none -> 0
+//         ls -> 1
+//         cat -> 2
+//         exit -> 3
+int verifCmd(cmdc, cmdv) {
+
+}
+
+// H
+void displayStart() {
+
+}
+
+// J
+void displayEnd() {
+
+}
+
+// J
+void warning(cmdc, cmdv) {
+        
 }
 
