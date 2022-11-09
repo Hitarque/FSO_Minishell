@@ -1,33 +1,36 @@
-//FSO project 
+// FSO project
 
 #include <stdbool.h>
 #include <stdlib.h>
 
-void main(int argc, char* argv) {
+void main(int argc, char *argv)
+{
         bool loop = true;
         int cmdc, cmdt;
-        char* cmdv;
+        char *cmdv;
 
         displayStart();
 
-        while(loop) {
+        while (loop)
+        {
                 // input -> cmdv
                 // nb de param de cmdv -> cmdc (delimiter " ")
 
-                if (cmdt = (verifCmd(cmdc, cmdv)) != 0) {
+                if (cmdt = (verifCmd(cmdc, cmdv)) != 0)
+                {
                         switch (smdt) :
                                 case 1:
                                         exec_ls(cmdc, cmdv);
-                                        break;
-                                case 2:
-                                        exec_cat(cmdc, cmdv);
-                                        break;
-                                case 3:
-                                        loop = false;
-                                        break;
-                                default :
-                                        break;
-                } 
+                        break;
+                case 2:
+                        exec_cat(cmdc, cmdv);
+                        break;
+                case 3:
+                        loop = false;
+                        break;
+                default:
+                        break;
+                }
                 // Print warning si cmdc > 2
         }
 
@@ -37,21 +40,30 @@ void main(int argc, char* argv) {
 }
 
 // J
-void exec_ls(cmdc, cmdv) {
+void exec_ls(cmdc, cmdv)
+{
         // Création du fork
+        pid_t parent = getpid();
+        pid_t child = fork();
+
         // Vérification (child/parent)
-                // Si enfant exec()
-                        // display result
-                // Sinon await -> a voir
+
+        // Si enfant exec()
+        if (child == 0)
+        {
+                // Execute ls commande
+        }
+        // Sinon await -> a voir
 }
 
 // H
-void exec_cat(cmdc, cmdv) {
+void exec_cat(cmdc, cmdv)
+{
         // Création du fork
         // Vérification (child/parent)
-                // Si enfant exec()
-                        // display result
-                // Sinon await -> a voir
+        // Si enfant exec()
+        // display result
+        // Sinon await -> a voir
 }
 
 // H
@@ -60,22 +72,23 @@ void exec_cat(cmdc, cmdv) {
 //         ls -> 1
 //         cat -> 2
 //         exit -> 3
-int verifCmd(cmdc, cmdv) {
-
+int verifCmd(cmdc, cmdv)
+{
 }
 
 // H
-void displayStart() {
-
+void displayStart()
+{
 }
 
 // J
-void displayEnd() {
-
+void displayEnd()
+{
+        printf("Thanks for using our miniShell solution.\nWe hope see you as soon as possible.");
 }
 
 // J
-void warning(cmdc, cmdv) {
-        
+void warning(cmdc, cmdv)
+{
+        // Print warning message if there are too much parameter in comande line
 }
-
