@@ -57,7 +57,7 @@ char** split(char* string, char delimiter)
 {
         for(int i=0; i<(sizeof(string)/sizeof(char));i++)
         {
-                if(string[i])
+                
         }
 }
 
