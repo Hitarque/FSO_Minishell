@@ -24,12 +24,11 @@ void main(int argc, char *argv)
         cmdv = strtok ( var , delim ) ;
         // Bucle de busqueda de tokens
         while ( cmdv != NULL ) {
-        printf("while loop");
         printf ( " %s\n", cmdv ) ;
         cmdv = strtok ( NULL , delim) ;
         }
 
-        printf (" %s\n", cmdv ) ;
+        printf (" %s\n", cmdv[0] ) ;
         
 
         switch (cmdt)
