@@ -6,7 +6,7 @@ void main(int argc, char *argv)
 {
         bool loop = true, scan;
         int cmdc, cmdt = 1;
-        char *cmdv[128];
+        char *cmdv;
 
         displayStart();
         printf("Running main");
@@ -14,7 +14,7 @@ void main(int argc, char *argv)
         //for(int i=0; i<4; i++) {
         //        scanf("%s", &cmdv[i]);
         //}
-        char test = [128];
+        char test[128];
         scanf("%c",test);
         cmdv = strtok(test," ");
         printf("Command :%s %s\n", &cmdv[0],&cmdv[1]);
