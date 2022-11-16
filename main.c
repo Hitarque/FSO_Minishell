@@ -1,6 +1,8 @@
 // FSO project
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 void main(int argc, char *argv)
 {
@@ -17,7 +19,9 @@ void main(int argc, char *argv)
         char test[128];
         scanf("%c",test);
         cmdv = strtok(test," ");
-        printf("Command :%s %s\n", &cmdv[0],&cmdv[1]);
+        while(cmdv != NULL){
+                printf("%s \n", cmdv)
+        }
         // while (loop)
         // {
         // input -> cmdv        
