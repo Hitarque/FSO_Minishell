@@ -15,10 +15,10 @@ void main(int argc, char *argv)
                 scanf("%s", &cmdv[i]);
         }
 
-        printf("Command :%s %s %S %s \n", &cmdv[0],&cmdv[1],&cmdv[2],&cmdv[3]);
+        printf("Command :%s %s %s %s \n", &cmdv[0],&cmdv[1],&cmdv[2],&cmdv[3]);
         // while (loop)
         // {
-        // input -> cmdv
+        // input -> cmdv        
         // scan = true;
         // int parameters_number = 0;
         // while (scan)
@@ -63,7 +63,7 @@ void main(int argc, char *argv)
 // J
 void exec_ls(int cmdc, char *cmdv)
 {
-        printf("exec_ls");
+        printf("exec_ls\n");
         // Création du fork
         pid_t parent = getpid();
         pid_t child = fork();
