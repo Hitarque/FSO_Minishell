@@ -68,7 +68,7 @@ void exec_ls(int cmdc, char *cmdv)
                 // strcat(cmd, cmdv[1]);
                 // strcat(cmd, " ");
                 // strcat(cmd, cmdv[2]);
-                print(execl(cmdv[0], cmdv[1], null));
+                print(execl(cmdv[0], cmdv[1], NULL));
                 // Execute ls commande
         }
         // Sinon await -> a voir
