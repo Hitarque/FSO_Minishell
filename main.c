@@ -19,9 +19,9 @@ void main(int argc, char *argv)
         char test[128];
         scanf("%c",test);
         cmdv = strtok(test," ");
-        while(cmdv != NULL){
-                printf("%s \n", cmdv);
-        }
+        
+        printf("%s \n", cmdv[1]);
+        
         // while (loop)
         // {
         // input -> cmdv        
