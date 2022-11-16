@@ -6,7 +6,7 @@ void main(int argc, char *argv)
 {
         bool loop = true, scan;
         int cmdc, cmdt;
-        char *cmdv;
+        char *cmdv = [128];
 
         displayStart();
         printf("Running main");
