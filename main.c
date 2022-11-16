@@ -15,7 +15,7 @@ void main(int argc, char *argv)
         {
                 // input -> cmdv
                 // nb de param de cmdv -> cmdc (delimiter " ")
-
+                /*
                 if (cmdt = (verifCmd(cmdc, cmdv)) != 0)
                 {
                         switch (smdt) :
@@ -31,6 +31,7 @@ void main(int argc, char *argv)
                 default:
                         break;
                 }
+                */
                 // Print warning si cmdc > 2
         }
 
@@ -57,13 +58,28 @@ void exec_ls(cmdc, cmdv)
 }
 
 // H
-void exec_cat(cmdc, cmdv)
+void exec_cat(int cmdc,char* cmdv)
 {
         // Création du fork
+        pid_t parent = getpid();
+        pid_t child = fork();
+        int status = 0;
+
         // Vérification (child/parent)
-        // Si enfant exec()
-        // display result
+        if(child == 0){
+                // Si enfant exec()
+                // display result
+                char* cmd;
+                cmd = malloc(strlen(cmdv[1])+strlen(cmdv[2])+1);
+                strcat(cmd,cmdv[1]);
+                strcat(cmd," ");
+                strcat(cmd,cmdv[2]);
+                char *args[]={cmd,NULL};
+                printf(execv(args[0],args));
+                free(cmd);
+        }
         // Sinon await -> a voir
+        while ((parent = wait(&status)) > 0);
 }
 
 // H
@@ -72,13 +88,32 @@ void exec_cat(cmdc, cmdv)
 //         ls -> 1
 //         cat -> 2
 //         exit -> 3
-int verifCmd(cmdc, cmdv)
+int verifCmd(int cmdc,char* cmdv)
 {
+        if(cmdv[1] == "ls")
+        {
+                return 1;
+        }
+        if(cmdv[1] == "cat")
+        {
+                return 2;
+        }
+        if(cmdv[1] == "exit")
+        {
+                return 3;
+        }
+        return 0;
 }
 
 // H
 void displayStart()
 {
+        printf(" ██████   ██████  ███              ███          █████               ████  ████ \n░░██████ ██████  ░░░              ░░░          ░░███               ░░███ ░░███ \n ░███░█████░███  ████  ████████   ████   █████  ░███████    ██████  ░███  ░███ \n ░███░░███ ░███ ░░███ ░░███░░███ ░░███  ███░░   ░███░░███  ███░░███ ░███  ░███ \n ░███ ░░░  ░███  ░███  ░███ ░███  ░███ ░░█████  ░███ ░███ ░███████  ░███  ░███ \n ░███      ░███  ░███  ░███ ░███  ░███  ░░░░███ ░███ ░███ ░███░░░   ░███  ░███ \n █████     █████ █████ ████ █████ █████ ██████  ████ █████░░██████  █████ █████\n░░░░░     ░░░░░ ░░░░░ ░░░░ ░░░░░ ░░░░░ ░░░░░░  ░░░░ ░░░░░  ░░░░░░  ░░░░░ ░░░░░ \n                                                                               \n                                                                               \n");
+        printf("V 1.0 Minshell by Hugo FABRE & Julien MOINARD - FSO project\n");
+        printf("Contact: hfabre.ing2022@esaip.org & julienm.ir2023@esaip.org\n\n");
+
+        printf("This project work only with 2 command: cat and ls\n");
+        printf("Only 1 parameters is allowed for each command, all other parameters will not be used\n");
 }
 
 // J
@@ -88,7 +123,7 @@ void displayEnd()
 }
 
 // J
-void warning(cmdc, cmdv)
+void warning(int cmdc,char* cmdv)
 {
         // Print warning message if there are too much parameter in comande line
 }
