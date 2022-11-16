@@ -5,46 +5,49 @@
 void main(int argc, char *argv)
 {
         bool loop = true, scan;
-        int cmdc, cmdt;
-        char *cmdv = [128];
+        int cmdc, cmdt = 1;
+        char *cmdv[128];
 
         displayStart();
         printf("Running main");
-        while (loop)
+        // while (loop)
+        // {
+        // input -> cmdv
+        // scan = true;
+        // int parameters_number = 0;
+        // while (scan)
+        // {
+        //         scanf("minishell -->%s", cmdv[parameters_number]);
+        //         parameters_number++;
+        //         if (cmdv[parameters_number] = " ")
+        //         {
+        //                 scan = false;
+        //         }
+        // }
+        // // printf("Sortie de la boucle de parametres");
+        // nb de param de cmdv -> cmdc (delimiter " ")
+
+        // if (cmdt = (verifCmd(cmdc, cmdv)) != 0)
+        // {
+        switch (cmdt)
         {
-                // input -> cmdv
-                scan = true;
-                int parameters_number = 0;
-                while (scan)
-                {
-                        scanf("minishell -->%s", cmdv[parameters_number]);
-                        parameters_number++;
-                        if (cmdv[parameters_number] = " ")
-                        {
-                                scan = false;
-                        }
-                }
-                printf("Sortie de la boucle de parametres");
-                // nb de param de cmdv -> cmdc (delimiter " ")
-                /*
-                if (cmdt = (verifCmd(cmdc, cmdv)) != 0)
-                {
-                        switch (smdt) :
-                                case 1:
-                                        exec_ls(cmdc, cmdv);
-                        break;
-                case 2:
-                        exec_cat(cmdc, cmdv);
-                        break;
-                case 3:
-                        loop = false;
-                        break;
-                default:
-                        break;
-                }
-                */
-                // Print warning si cmdc > 2
+        case 1:
+                exec_ls(cmdc, cmdv);
+                break;
+        case 2:
+                exec_cat(cmdc, cmdv);
+                break;
+        case 3:
+                loop = false;
+                break;
+        default:
+                break;
         }
+        // }
+        scan = true;
+
+        // Print warning si cmdc > 2
+        // }
 
         displayEnd();
 
@@ -54,6 +57,7 @@ void main(int argc, char *argv)
 // J
 void exec_ls(int cmdc, char *cmdv)
 {
+        printf("exec_ls");
         // Création du fork
         pid_t parent = getpid();
         pid_t child = fork();
@@ -68,7 +72,7 @@ void exec_ls(int cmdc, char *cmdv)
                 // strcat(cmd, cmdv[1]);
                 // strcat(cmd, " ");
                 // strcat(cmd, cmdv[2]);
-                print(execl(cmdv[0], cmdv[1], NULL));
+                printf(execl(cmdv[0], cmdv[1], NULL));
                 // Execute ls commande
         }
         // Sinon await -> a voir
@@ -111,15 +115,15 @@ void exec_cat(int cmdc, char *cmdv)
 //         exit -> 3
 int verifCmd(int cmdc, char *cmdv)
 {
-        if (cmdv[1] == "ls")
+        if (cmdv[0] == "ls")
         {
                 return 1;
         }
-        if (cmdv[1] == "cat")
+        if (cmdv[0] == "cat")
         {
                 return 2;
         }
-        if (cmdv[1] == "exit")
+        if (cmdv[0] == "exit")
         {
                 return 3;
         }
