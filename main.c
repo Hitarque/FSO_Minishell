@@ -123,6 +123,8 @@ void displayStart()
 
         printf("This project work only with 2 command: cat and ls\n");
         printf("Only 1 parameters is allowed for each command, all other parameters will not be used\n");
+
+        return 0;
 }
 
 // J
