@@ -16,7 +16,7 @@ void main(int argc, char *argv)
                 scan = true;
                 int parameters_number = 0;
                 while(scan){
-                       scanf("minishell -->%s", cmdv[parameters_number])
+                       scanf("minishell -->%s", cmdv[parameters_number]);
                        parameters_number++;
                         if(cmdv[parameters_number] =" "){
                                 scan =false;
