@@ -15,11 +15,13 @@ void main(int argc, char *argv)
                 // input -> cmdv
                 scan = true;
                 int parameters_number = 0;
-                while(scan){
-                       scanf("minishell -->%s", cmdv[parameters_number]);
-                       parameters_number++;
-                        if(cmdv[parameters_number] =" "){
-                                scan =false;
+                while (scan)
+                {
+                        scanf("minishell -->%s", cmdv[parameters_number]);
+                        parameters_number++;
+                        if (cmdv[parameters_number] = " ")
+                        {
+                                scan = false;
                         }
                 }
                 printf("Sortie de la boucle de parametres");
@@ -50,7 +52,7 @@ void main(int argc, char *argv)
 }
 
 // J
-void exec_ls(cmdc, cmdv)
+void exec_ls(int cmdc, char *cmdv)
 {
         // Création du fork
         pid_t parent = getpid();
@@ -70,7 +72,7 @@ void exec_ls(cmdc, cmdv)
                 // Execute ls commande
         }
         // Sinon await -> a voir
-        while ((wpid = wait(&status)) > 0)
+        while ((parent = wait(&status)) > 0)
                 ;
 }
 
