@@ -1,11 +1,10 @@
 // FSO project
-
 #include <stdbool.h>
 #include <stdlib.h>
 
 void main(int argc, char *argv)
 {
-        bool loop = true;
+        bool loop = true, scan;
         int cmdc, cmdt;
         char *cmdv;
 
@@ -14,6 +13,16 @@ void main(int argc, char *argv)
         while (loop)
         {
                 // input -> cmdv
+                scan = true;
+                int parameters_number = 0;
+                while(scan){
+                       scanf("%s", cmdv[parameters_number])
+                       parameters_number++;
+                        if(cmdv[parameters_number] =" "){
+                                scan =false;
+                        }
+                }
+                printf("Sortie de la boucle de parametres");
                 // nb de param de cmdv -> cmdc (delimiter " ")
                 /*
                 if (cmdt = (verifCmd(cmdc, cmdv)) != 0)
