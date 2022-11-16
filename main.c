@@ -15,7 +15,7 @@ void main(int argc, char *argv)
                 scanf("%s", &cmdv[i]);
         }
 
-        printf("%s %s %S %s", cmdv[0],cmdv[1],cmdv[2],cmdv[3]);
+        printf("%s %s %S %s", &cmdv[0],&cmdv[1],&cmdv[2],&cmdv[3]);
         // while (loop)
         // {
         // input -> cmdv
