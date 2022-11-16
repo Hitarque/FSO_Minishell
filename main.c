@@ -46,19 +46,27 @@ void exec_ls(cmdc, cmdv)
         // Création du fork
         pid_t parent = getpid();
         pid_t child = fork();
+        int status = 0;
 
         // Vérification (child/parent)
 
         // Si enfant exec()
         if (child == 0)
         {
+                // char *cmd = malloc(strlen(cmdv[1]) + strlen(cmdv[2]) + 2);
+                // strcat(cmd, cmdv[1]);
+                // strcat(cmd, " ");
+                // strcat(cmd, cmdv[2]);
+                print(execl(cmdv[0], cmdv[1], null));
                 // Execute ls commande
         }
         // Sinon await -> a voir
+        while ((wpid = wait(&status)) > 0)
+                ;
 }
 
 // H
-void exec_cat(int cmdc,char* cmdv)
+void exec_cat(int cmdc, char *cmdv)
 {
         // Création du fork
         pid_t parent = getpid();
@@ -66,20 +74,22 @@ void exec_cat(int cmdc,char* cmdv)
         int status = 0;
 
         // Vérification (child/parent)
-        if(child == 0){
+        if (child == 0)
+        {
                 // Si enfant exec()
                 // display result
-                char* cmd;
-                cmd = malloc(strlen(cmdv[1])+strlen(cmdv[2])+1);
-                strcat(cmd,cmdv[1]);
-                strcat(cmd," ");
-                strcat(cmd,cmdv[2]);
-                char *args[]={cmd,NULL};
-                printf(execv(args[0],args));
+                char *cmd;
+                cmd = malloc(strlen(cmdv[1]) + strlen(cmdv[2]) + 1);
+                strcat(cmd, cmdv[1]);
+                strcat(cmd, " ");
+                strcat(cmd, cmdv[2]);
+                char *args[] = {cmd, NULL};
+                printf(execv(args[0], args));
                 free(cmd);
         }
         // Sinon await -> a voir
-        while ((parent = wait(&status)) > 0);
+        while ((parent = wait(&status)) > 0)
+                ;
 }
 
 // H
@@ -88,17 +98,17 @@ void exec_cat(int cmdc,char* cmdv)
 //         ls -> 1
 //         cat -> 2
 //         exit -> 3
-int verifCmd(int cmdc,char* cmdv)
+int verifCmd(int cmdc, char *cmdv)
 {
-        if(cmdv[1] == "ls")
+        if (cmdv[1] == "ls")
         {
                 return 1;
         }
-        if(cmdv[1] == "cat")
+        if (cmdv[1] == "cat")
         {
                 return 2;
         }
-        if(cmdv[1] == "exit")
+        if (cmdv[1] == "exit")
         {
                 return 3;
         }
@@ -119,11 +129,16 @@ void displayStart()
 // J
 void displayEnd()
 {
-        printf("Thanks for using our miniShell solution.\nWe hope see you as soon as possible.");
+        printf("Thanks for using our miniShell solution.\nWe hope see you as soon as possible.\n");
 }
 
 // J
-void warning(int cmdc,char* cmdv)
+void warning(int cmdc, char *cmdv)
 {
         // Print warning message if there are too much parameter in comande line
+        if (cmdc > 2)
+        {
+                printf("Warning: There is too much parameters. We'll only take the first command parameters!\n");
+                printf("The command executed will be : %c %c", cmdv[0], cmdv[1]);
+        }
 }
