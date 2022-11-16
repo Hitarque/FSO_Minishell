@@ -9,25 +9,29 @@ void main(int argc, char *argv)
         bool loop = true, scan;
         int cmdc, cmdt = 1;
         char *cmdv;
+        const char delim [2] = " ";
 
         displayStart();
-        printf("Running main");
+        printf("Running main\n");
 
         //for(int i=0; i<4; i++) {
         //        scanf("%s", &cmdv[i]);
         //}
 
         // lectura del primer token
-        char var[128];
-        fgets(var,128,stdin);
-        cmdv = strtok ( var , ' ' ) ;
+        char var[100];
+        fgets(var,100,stdin);
+        cmdv = strtok ( var , delim ) ;
         // Bucle de busqueda de tokens
         while ( cmdv != NULL ) {
+        printf("while loop");
         printf ( " %s\n", cmdv ) ;
-        cmdv = strtok ( NULL , ' ' ) ;
+        cmdv = strtok ( NULL , delim) ;
         }
+
         printf (" %s\n", cmdv ) ;
         
+
         switch (cmdt)
         {
         case 1:
