@@ -18,7 +18,7 @@ void main(int argc, char *argv)
         //}
 
         // lectura del primer token
-        char var=[128];
+        char var[128];
         fgets(var,128,stdin);
         cmdv = strtok ( var , ' ' ) ;
         // Bucle de busqueda de tokens
