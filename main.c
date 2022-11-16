@@ -21,12 +21,11 @@ void main(int argc, char *argv)
         // lectura del primer token
         char var[100];
         fgets(var,100,stdin);
-        cmdv = strtok ( var , delim ) ;
-        printf (" %s\n", cmdv) ;
+        cmdv[0] = strtok ( var , delim ) ;
         // Bucle de busqueda de tokens
         while ( cmdv != NULL ) {
         printf ( " %s\n", cmdv ) ;
-        cmdv = strtok ( NULL , delim) ;
+        cmdv[1] = strtok ( NULL , delim) ;
         }
 
         printf (" %s\n", cmdv) ;
