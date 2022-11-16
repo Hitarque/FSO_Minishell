@@ -28,7 +28,7 @@ void main(int argc, char *argv)
         cmdv[1] = strtok ( NULL , delim) ;
         }
 
-        printf (" %s\n", cmdv) ;
+        printf (" %s\n", cmdv[0]) ;
         
 
         switch (cmdt)
