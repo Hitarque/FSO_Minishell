@@ -16,31 +16,18 @@ void main(int argc, char *argv)
         //for(int i=0; i<4; i++) {
         //        scanf("%s", &cmdv[i]);
         //}
-        char test[128];
-        scanf("%c",test);
-        cmdv = strtok(test," ");
-        
-        printf("%s \n", cmdv[1]);
-        
-        // while (loop)
-        // {
-        // input -> cmdv        
-        // scan = true;
-        // int parameters_number = 0;
-        // while (scan)
-        // {
-        //         scanf("minishell -->%s", cmdv[parameters_number]);
-        //         parameters_number++;
-        //         if (cmdv[parameters_number] = " ")
-        //         {
-        //                 scan = false;
-        //         }
-        // }
-        // // printf("Sortie de la boucle de parametres");
-        // nb de param de cmdv -> cmdc (delimiter " ")
 
-        // if (cmdt = (verifCmd(cmdc, cmdv)) != 0)
-        // {
+        // lectura del primer token
+        char var=[128];
+        fgets(var,128,stdin);
+        cmdv = strtok ( var , ' ' ) ;
+        // Bucle de busqueda de tokens
+        while ( cmdv != NULL ) {
+        printf ( " %s\n", cmdv ) ;
+        cmdv = strtok ( NULL , ' ' ) ;
+        }
+        printf (" %s\n", cmdv ) ;
+        
         switch (cmdt)
         {
         case 1:
@@ -64,6 +51,14 @@ void main(int argc, char *argv)
         displayEnd();
 
         return 0;
+}
+
+char** split(char* string, char delimiter)
+{
+        for(int i=0; i<(sizeof(string)/sizeof(char));i++)
+        {
+                if(string[i])
+        }
 }
 
 // J
