@@ -23,7 +23,7 @@ void main(int argc, char *argv)
         fgets(var,100,stdin);
         cmdv[0] = strtok ( var , delim ) ;
         // Bucle de busqueda de tokens
-        while ( cmdv != NULL ) {
+        while ( cmdv[0] != NULL ) {
         printf ( " %s\n", cmdv ) ;
         cmdv[1] = strtok ( NULL , delim) ;
         }
