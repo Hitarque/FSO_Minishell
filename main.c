@@ -11,7 +11,7 @@ void main(int argc, char *argv)
         displayStart();
         printf("Running main");
 
-        for(i=0; i<4; i++) {
+        for(int i=0; i<4; i++) {
                 scanf("%s", &cmdv[i]);
         }
 
