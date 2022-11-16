@@ -11,11 +11,13 @@ void main(int argc, char *argv)
         displayStart();
         printf("Running main");
 
-        for(int i=0; i<4; i++) {
-                scanf("%s", &cmdv[i]);
-        }
-
-        printf("Command :%s %s %s %s \n", &cmdv[0],&cmdv[1],&cmdv[2],&cmdv[3]);
+        //for(int i=0; i<4; i++) {
+        //        scanf("%s", &cmdv[i]);
+        //}
+        char test = [128];
+        scanf("%c",test);
+        cmdv = strtok(test," ");
+        printf("Command :%s %s\n", &cmdv[0],&cmdv[1]);
         // while (loop)
         // {
         // input -> cmdv        
