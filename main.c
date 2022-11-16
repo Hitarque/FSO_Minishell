@@ -20,7 +20,7 @@ void main(int argc, char *argv)
         scanf("%c",test);
         cmdv = strtok(test," ");
         while(cmdv != NULL){
-                printf("%s \n", cmdv)
+                printf("%s \n", cmdv);
         }
         // while (loop)
         // {
