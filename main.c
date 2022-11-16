@@ -9,7 +9,7 @@ void main(int argc, char *argv)
         char *cmdv;
 
         displayStart();
-
+        printf("Running main");
         while (loop)
         {
                 // input -> cmdv
